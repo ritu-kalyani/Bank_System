@@ -18,7 +18,7 @@
       <ul>
         <li><a  href="index.php">Home</a></li>
         <li><a href="viewusers.php">View Users</a></li>
-        <li><a href="#">Transaction History</a></li>
+        <li><a href="transferhistory.php">Transaction History</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
   </nav>

@@ -24,7 +24,7 @@
             <th scope="col">User_Id</th>
             <th scope="col">User Name</th>
             <th scope="col">Email Id</th>
-            <th scope="col">Money</th>
+            <th scope="col">Amount</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -33,19 +33,41 @@
         $sql = "SELECT * FROM `users`";
         $result = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_assoc($result)){
-            echo "<tr>
-            <td>". $row['user_id'] . "</td>
+            echo "<tr>";
+            echo "<form method ='post' action = 'viewone.php'>";
+            echo "<td>". $row['user_id'] . "</td>
             <td>". $row['name'] . "</td>
             <td>". $row['email'] . "</td>
-            <td>". $row['money'] . "</td>
-            <td> <button class='view btn btn-sm btn-primary' onclick=vieweach() id=".$row['user_id'].">View</button></td>
-        </tr>";
+            <td>". $row['money'] . "</td>";
+           echo "<td> <a href='viewone.php'><button class='view btn btn-sm btn-dark' name='users1' id= 'users1'>view</button></a></td>";
+            echo "</form>";
+           echo  "</tr>";
         }
         ?>
         </tbody>
     </table>
 </div>
 <hr>
+<form action="viewone.php" method="POST">
+    <h5 style="margin-left:40px;height:40px;color:black;font-size:30px;padding-top:20px;">Or you can select from here to view details </h5>
+    <h6 style="margin-left:40px;color:black;padding-top:20px;">
+    Select User to view details:
+  <select name="users" id="users" required>
+    <option>--Select User--</option>
+<?php
+$res = mysqli_query($conn, "SELECT * FROM users");
+while($row = mysqli_fetch_array($res)) {
+    echo("<option> ".$row['name']."</option>");
+}
+?>
+</select>
+</h6>
+
+<div style="margin-left:40px;color:black;padding-top:20px;">
+<button href="viewone.php" id="submit" name="submit" class="btn btn-outline-dark"><b>View User Details</b></button>
+</div><br><br>
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -61,9 +83,6 @@
         $('#myTable').DataTable();
 
     });
-
-   user= document.getElementByClassName('view')
-   
 </script>
 
 <?php

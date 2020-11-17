@@ -53,7 +53,7 @@
     </div>
     <div class="container" style="display:flex;justify-content:center;align-items:center;margin-top:25px;">
         <div class="card" style="width: 18rem;margin:40px;">
-            <a href=""><img src="../images/us.jpg" class="card-img-top" width="200" height="200" alt="..."></a>
+            <a href="viewusers.php"><img src="../images/us.jpg" class="card-img-top" width="200" height="200" alt="..."></a>
             <div class="card-body">
                 <p class="card-text"><h3 style="text-align:center;">Transaction</h3>Here,you can transfer money with the other people</p>
             </div>
